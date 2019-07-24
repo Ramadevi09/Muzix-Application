@@ -52,4 +52,10 @@ return true;
         muzixRepository.save(track);
         return true;
     }
+
+    @Override
+    public List<Track> getByName(String name) {
+        List<Track> tracks=muzixRepository.findTitleByName(name);
+        return tracks;
+    }
 }

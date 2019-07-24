@@ -12,4 +12,5 @@ public interface MuzixService {
     public List<Track> getAllTracks();
     public Optional<Track> getTrackById(int trackId);
     public boolean updateById(Track track,int Id);
+    public List<Track> getByName(String name);
 }
