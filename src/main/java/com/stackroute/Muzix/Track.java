@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Track {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue()
     private int trackid;
     private String trackname;
     private String comments;
