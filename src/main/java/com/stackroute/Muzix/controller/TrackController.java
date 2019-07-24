@@ -2,7 +2,7 @@ package com.stackroute.Muzix.controller;
 
 import com.stackroute.Muzix.Exceptions.TrackAlreadyExistsException;
 import com.stackroute.Muzix.Exceptions.TrackNotFoundException;
-import com.stackroute.Muzix.Track;
+import com.stackroute.Muzix.Domain.Track;
 import com.stackroute.Muzix.service.MuzixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

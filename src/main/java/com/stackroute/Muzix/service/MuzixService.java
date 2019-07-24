@@ -2,7 +2,7 @@ package com.stackroute.Muzix.service;
 
 import com.stackroute.Muzix.Exceptions.TrackAlreadyExistsException;
 import com.stackroute.Muzix.Exceptions.TrackNotFoundException;
-import com.stackroute.Muzix.Track;
+import com.stackroute.Muzix.Domain.Track;
 
 import java.util.List;
 import java.util.Optional;
