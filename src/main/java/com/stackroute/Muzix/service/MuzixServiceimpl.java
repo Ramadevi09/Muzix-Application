@@ -44,9 +44,7 @@ public class MuzixServiceimpl implements MuzixService, ApplicationListener<Conte
 
     @Override
     public boolean saveTrack(Track track) throws TrackAlreadyExistsException {
-        if(muzixRepository.existsById(track.getTrackid())){
-            throw new TrackAlreadyExistsException("id already exists");
-        }
+
 Track saveedTrack=muzixRepository.save(track);
 return true;
     }
@@ -54,9 +52,7 @@ return true;
     @Override
     public boolean deleteTrack(int trackId) throws TrackNotFoundException {
         Track track=new Track();
-        if(!muzixRepository.findById(trackId).isPresent()){
-            throw new TrackNotFoundException("id not found");
-        }
+
     muzixRepository.deleteById(trackId);
         return true;
     }
