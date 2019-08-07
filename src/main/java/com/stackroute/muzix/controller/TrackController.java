@@ -21,6 +21,7 @@ public class TrackController {
         this.muzixService = muzixService;
     }
     @PostMapping("track")
+    //postmapping for save tracks
     public ResponseEntity<?> saveTrack(@RequestBody Track track) throws TrackAlreadyExistsException {
     ResponseEntity responseEntity;
     try{
@@ -32,6 +33,7 @@ public class TrackController {
     }
 return  responseEntity;
     }
+    //get mapping for retrive all tracks
     @GetMapping("track")
    public ResponseEntity<?> getAllTracks(){
 return new ResponseEntity<List<Track>>(muzixService.getAllTracks(),HttpStatus.OK);
@@ -48,6 +50,7 @@ return new ResponseEntity<List<Track>>(muzixService.getAllTracks(),HttpStatus.OK
         }
         return  responseEntity;
     }
+    //put mapping for update track by track id
     @PutMapping("update/{trackId}")
     public ResponseEntity<?> updateTrack(@RequestBody Track track,@PathVariable int trackId) throws TrackNotFoundException{
         ResponseEntity responseEntity;
