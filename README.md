@@ -1,2 +1,2 @@
 # Muzix-Application
-1. Complete all the endpoints for CRUD operations on Muzix
+1. Completed all the endpoints for CRUD operations on Muzix
