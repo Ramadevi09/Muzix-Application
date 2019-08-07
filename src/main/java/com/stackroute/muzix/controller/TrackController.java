@@ -1,6 +1,8 @@
 package com.stackroute.muzix.controller;
 
 import com.stackroute.muzix.domain.Track;
+import com.stackroute.muzix.exceptions.TrackAlreadyExistsException;
+import com.stackroute.muzix.exceptions.TrackNotFoundException;
 import com.stackroute.muzix.service.MuzixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +28,7 @@ public class TrackController {
         muzixService.saveTrack(track);
         responseEntity=new ResponseEntity<String>("successfully created", HttpStatus.CREATED);
     }
-    catch (Exception exception){
+    catch (TrackAlreadyExistsException exception){
         responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
     }
 return  responseEntity;
@@ -44,7 +46,7 @@ return new ResponseEntity<List<Track>>(muzixService.getAllTracks(),HttpStatus.OK
             muzixService.deleteTrack(trackId);
             responseEntity=new ResponseEntity<String>("successfully deleted", HttpStatus.OK);
         }
-        catch (Exception exception){
+        catch (TrackNotFoundException exception){
             responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
         }
         return  responseEntity;
@@ -57,7 +59,7 @@ return new ResponseEntity<List<Track>>(muzixService.getAllTracks(),HttpStatus.OK
             muzixService.updateById(track,trackId);
             responseEntity=new ResponseEntity<String>("successfully updated", HttpStatus.OK);
         }
-        catch (Exception exception){
+        catch (TrackNotFoundException exception){
             responseEntity=new ResponseEntity<String>(exception.getMessage(),HttpStatus.CONFLICT);
         }
         return  responseEntity;
