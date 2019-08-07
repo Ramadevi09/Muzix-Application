@@ -1,7 +1,7 @@
-package com.stackroute.Muzix.service;
+package com.stackroute.muzix.service;
 
-import com.stackroute.Muzix.Track;
-import com.stackroute.Muzix.repository.MuzixRepository;
+import com.stackroute.muzix.domain.Track;
+import com.stackroute.muzix.repository.MuzixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,34 +22,39 @@ private MuzixRepository muzixRepository;
     }
 
     @Override
-    public boolean saveTrack(Track track) {
+    //saves the track
+    public Track saveTrack(Track track) {
 Track saveedTrack=muzixRepository.save(track);
-return true;
+return saveedTrack;
     }
 
     @Override
-    public boolean deleteTrack(int trackId) {
+    //delete the track based on id
+    public int deleteTrack(int trackId) {
     muzixRepository.deleteById(trackId);
-        return true;
+        return trackId;
     }
 
     @Override
+    //retrive all tracks
     public List<Track> getAllTracks() {
     return muzixRepository.findAll();
     }
 
     @Override
+    //retrive track based on id
     public Optional<Track> getTrackById(int trackId) {
     return muzixRepository.findById(trackId);
     }
 
     @Override
-    public boolean updateById(Track track, int trackId) {
+    //update track based on id
+    public Track updateById(Track track, int trackId) {
         Optional<Track> userOptional = muzixRepository.findById(trackId);
         if (!userOptional.isPresent())
-            return false;
+            return track;
         track.setTrackid(trackId);
         muzixRepository.save(track);
-        return true;
+        return track;
     }
 }

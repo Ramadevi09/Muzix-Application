@@ -1,4 +1,4 @@
-package com.stackroute.Muzix;
+package com.stackroute.muzix.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +13,10 @@ public class Track {
     private String trackname;
     private String comments;
     private String rating;
-
+//no param constructor
     public Track() {
     }
-
+//parameterized constructor
     public Track(int trackid, String trackname, String comments, String rating) {
         this.trackid = trackid;
         this.trackname = trackname;
@@ -59,6 +59,7 @@ public class Track {
     }
 
     @Override
+    //tostring method
     public String toString() {
         return "Track{" +
                 "trackid=" + trackid +
