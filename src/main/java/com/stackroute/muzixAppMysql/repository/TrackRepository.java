@@ -1,12 +1,9 @@
-package com.stackroute.MuzixAppMysql.repository;
+package com.stackroute.muzixAppMysql.repository;
 
-import com.stackroute.MuzixAppMysql.domain.Track;
+import com.stackroute.muzixAppMysql.domain.Track;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface TrackRepository extends MongoRepository<Track,Integer> {

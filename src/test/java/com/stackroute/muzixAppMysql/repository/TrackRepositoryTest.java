@@ -1,18 +1,6 @@
-package com.stackroute.MuzixAppMysql.repository;
+package com.stackroute.muzixAppMysql.repository;
 
-import com.stackroute.MuzixAppMysql.domain.Track;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import java.util.ArrayList;
-import java.util.List;
-
+/*
 @RunWith(SpringRunner.class)
 @DataMongoTest
 public class TrackRepositoryTest {
@@ -67,5 +55,5 @@ public class TrackRepositoryTest {
         List<Track> trackslist = trackRepository.findAll();
         //Assert.assertEquals(tracks,trackslist);
         Assert.assertEquals("majili",tracks.get(0).getName());
-    }
-}
+    }*/
+

@@ -1,4 +1,4 @@
-package com.stackroute.MuzixAppMysql;
+package com.stackroute.muzixAppMysql;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

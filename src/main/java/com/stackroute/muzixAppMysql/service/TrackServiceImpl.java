@@ -1,10 +1,10 @@
-package com.stackroute.MuzixAppMysql.service;
+package com.stackroute.muzixAppMysql.service;
 
 
-import com.stackroute.MuzixAppMysql.domain.Track;
-import com.stackroute.MuzixAppMysql.exceptions.TrackAlreadyExistsException;
-import com.stackroute.MuzixAppMysql.exceptions.TrackNotFoundException;
-import com.stackroute.MuzixAppMysql.repository.TrackRepository;
+import com.stackroute.muzixAppMysql.domain.Track;
+import com.stackroute.muzixAppMysql.exceptions.TrackAlreadyExistsException;
+import com.stackroute.muzixAppMysql.exceptions.TrackNotFoundException;
+import com.stackroute.muzixAppMysql.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +23,7 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
+    //save the tracks
     public Track saveTrack(Track track) throws TrackAlreadyExistsException {
 
         if(trackRepository.existsById(track.getId()))
@@ -37,7 +38,7 @@ public class TrackServiceImpl implements TrackService{
         }
         return savedTrack;
     }
-
+//retrive all tracks
     @Override
     public List<Track> getAllTracks() {
 
@@ -50,7 +51,7 @@ public class TrackServiceImpl implements TrackService{
         return trackRepository.getTrackByName(name);
 
     }*/
-
+//update tracks based on id
     public Track updateTrack(Track track, int id) throws TrackNotFoundException
     {
         Optional<Track> track1 = trackRepository.findById(id);
@@ -65,8 +66,8 @@ public class TrackServiceImpl implements TrackService{
         Track savedTrack = trackRepository.save(track);
         return savedTrack;
     }
-
-    public boolean deleteTrack(int id) throws TrackNotFoundException
+//delete track by id
+    public int deleteTrack(int id) throws TrackNotFoundException
     {
         Optional<Track> track1 = trackRepository.findById(id);
 
@@ -79,12 +80,12 @@ public class TrackServiceImpl implements TrackService{
 
             trackRepository.delete(track1.get());
 
-            return true;
+            return id;
 
         }
         catch (Exception exception)
         {
-            return false;
+            return 0;
         }
     }
 

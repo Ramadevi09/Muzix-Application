@@ -1,4 +1,4 @@
-package com.stackroute.MuzixAppMysql.confiiguration;
+package com.stackroute.muzixAppMysql.confiiguration;
  import org.h2.server.web.WebServlet;
  import org.springframework.boot.web.servlet.ServletRegistrationBean;
  import org.springframework.context.annotation.Bean;

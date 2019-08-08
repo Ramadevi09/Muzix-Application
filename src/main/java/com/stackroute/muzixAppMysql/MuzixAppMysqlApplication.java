@@ -1,4 +1,4 @@
-package com.stackroute.MuzixAppMysql;
+package com.stackroute.muzixAppMysql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
