@@ -1,11 +1,11 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.controllers;
+package com.stackroute.musicAssignment.muzixAppMysql.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Result;
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackAlreadyExistsException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackNotFoundException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.service.TrackService;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Result;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackAlreadyExistsException;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackNotFoundException;
+import com.stackroute.musicAssignment.muzixAppMysql.service.TrackService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,12 +33,12 @@ public class TrackController {
         try {
             trackService.saveTrack(track);
             responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
-        } catch (Exception exception) {
+        } catch (TrackAlreadyExistsException exception) {
             responseEntity = new ResponseEntity<String>(exception.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
-
+//save tracks
     @PostMapping("alltracks")
     public ResponseEntity<?> saveAllTrack(@RequestBody List<Track> trackList) throws TrackAlreadyExistsException
     {
@@ -49,7 +49,7 @@ public class TrackController {
         }
         return new ResponseEntity<List<Track>>(savedTrackList, HttpStatus.CREATED);
     }
-
+//retrive tacks based on trackname
     @GetMapping("trackByName")
     public ResponseEntity<?> getTrackByName(@RequestParam String name) throws TrackNotFoundException
     {
@@ -57,6 +57,7 @@ public class TrackController {
     }
 
     @GetMapping("track")
+    //retrive all tracks
     public ResponseEntity<?> getAllTracks() {
         ResponseEntity responseEntity;
 
@@ -72,24 +73,26 @@ public class TrackController {
     }
 
      @PutMapping("track/{id}")
+     //update tracks based on id
     public ResponseEntity<?> updateTrack(@RequestBody Track track, @PathVariable int id) {
          ResponseEntity responseEntity;
          try {
              trackService.updateTrack(track, id);
              responseEntity = new ResponseEntity<List<Track>>(trackService.getAllTracks(), HttpStatus.CREATED);
-         } catch (Exception exception1) {
+         } catch (TrackNotFoundException exception1) {
              responseEntity = new ResponseEntity<String>(exception1.getMessage(), HttpStatus.CONFLICT);
          }
          return responseEntity;
      }
 
       @DeleteMapping("track/{id}")
+      //delete track based on id
     public ResponseEntity<?> deleteTrack(@PathVariable int id) {
         ResponseEntity responseEntity;
         try {
             trackService.deleteTrack(id);
             responseEntity = new ResponseEntity<String>("Successfully deleted", HttpStatus.OK);
-        } catch (Exception exception) {
+        } catch (TrackNotFoundException exception) {
             responseEntity = new ResponseEntity<String>(exception.getMessage(), HttpStatus.CONFLICT);
     }
         return responseEntity;

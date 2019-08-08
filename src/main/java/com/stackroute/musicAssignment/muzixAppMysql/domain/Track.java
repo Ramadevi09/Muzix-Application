@@ -1,4 +1,4 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.domain;
+package com.stackroute.musicAssignment.muzixAppMysql.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
@@ -16,6 +16,7 @@ import javax.persistence.*;
 @Builder
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Track {
 
     @Id
@@ -81,7 +82,7 @@ public class Track {
     public void setId(int id) {
         this.id = id;
     }
-
+//parameterised constructor
     public Track(int id, String name, String artist, String url, String streamable, int listeners) {
         this.id = id;
         this.name = name;

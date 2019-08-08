@@ -1,10 +1,10 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.service;
+package com.stackroute.musicAssignment.muzixAppMysql.service;
 
 
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackAlreadyExistsException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackNotFoundException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.repository.TrackRepository;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackAlreadyExistsException;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackNotFoundException;
+import com.stackroute.musicAssignment.muzixAppMysql.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +23,7 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
+    //save the tracks
     public Track saveTrack(Track track) throws TrackAlreadyExistsException {
 
         if(trackRepository.existsById(track.getId()))
@@ -39,18 +40,20 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
+    //retrive all tracks
     public List<Track> getAllTracks() {
 
         return trackRepository.findAll();
     }
 
     @Override
+    //retrive tracks by name
     public List<Track> getTracksByName(String name) {
 
         return trackRepository.getTrackByName(name);
 
     }
-
+//update track based on id
     public Track updateTrack(Track track, int id) throws TrackNotFoundException
     {
         Optional<Track> track1 = trackRepository.findById(id);
@@ -65,8 +68,8 @@ public class TrackServiceImpl implements TrackService{
         Track savedTrack = trackRepository.save(track);
         return savedTrack;
     }
-
-    public boolean deleteTrack(int id) throws TrackNotFoundException
+//delete track based on id
+    public int deleteTrack(int id) throws TrackNotFoundException
     {
         Optional<Track> track1 = trackRepository.findById(id);
 
@@ -79,15 +82,15 @@ public class TrackServiceImpl implements TrackService{
 
             trackRepository.delete(track1.get());
 
-            return true;
+            return id;
 
         }
         catch (Exception exception)
         {
-            return false;
+            return 0;
         }
     }
-
+//serching tracks
     @Override
     public List<Track> searchTracks(String searchString) {
 

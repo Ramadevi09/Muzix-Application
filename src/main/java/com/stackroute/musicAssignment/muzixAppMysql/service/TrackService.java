@@ -1,4 +1,4 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.service;
+package com.stackroute.musicAssignment.muzixAppMysql.service;
 //
 //
 //
@@ -23,9 +23,9 @@ package com.stackroute.MusicAssignment.MuzixAppMysql.service;
 
 
 
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackAlreadyExistsException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackNotFoundException;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackAlreadyExistsException;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackNotFoundException;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public interface TrackService {
 
     public Track updateTrack(Track track, int id) throws TrackNotFoundException;
 
-    public boolean deleteTrack(int id) throws TrackNotFoundException;
+    public int deleteTrack(int id) throws TrackNotFoundException;
 
     public List<Track> searchTracks(String searchString);
 }

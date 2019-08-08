@@ -1,4 +1,4 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.confiiguration;
+package com.stackroute.musicAssignment.muzixAppMysql.confiiguration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,8 @@
 package com.stackroute.MuzixAppMysql.repository;
 
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
-import com.stackroute.MusicAssignment.MuzixAppMysql.repository.TrackRepository;
 
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.repository.TrackRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,16 +15,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class TrackRepositoryTest {
 
-    @Autowired
-    TrackRepository trackRepository;
+   @Autowired
+   TrackRepository trackRepository;
 
-    com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track track;
+    Track track;
 
     @Before
     public void setUp()
@@ -51,7 +49,7 @@ public class TrackRepositoryTest {
         Track fetchTrack = trackRepository.findById(track.getId()).get();
         Assert.assertEquals(1,fetchTrack.getId());
     }
-
+//save tracks
     @Test
     public void testSaveTrackFailure(){
         Track testTrack = new Track(1,"majili","tamman","www.testurl","streambale",1233);
@@ -59,7 +57,7 @@ public class TrackRepositoryTest {
         Track fetchTrack = trackRepository.findById(track.getId()).get();
         Assert.assertNotSame(fetchTrack,testTrack);
     }
-
+//retrive all tracks
     @Test
     public void getAllTracks()
     {

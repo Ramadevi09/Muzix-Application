@@ -1,9 +1,9 @@
 package com.stackroute.MuzixAppMysql.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.MusicAssignment.MuzixAppMysql.controllers.TrackController;
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
-import com.stackroute.MusicAssignment.MuzixAppMysql.service.TrackService;
+import com.stackroute.musicAssignment.muzixAppMysql.controllers.TrackController;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.service.TrackService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -44,7 +44,7 @@ public class TrackControllerTest {
 
     @Test
     public void saveTrackTest() throws Exception {
-        com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track track = new Track(1,"Pravallika","Manthenna","www.testurl","Stream",10);
+        com.stackroute.musicAssignment.muzixAppMysql.domain.Track track = new Track(1,"Pravallika","Manthenna","www.testurl","Stream",10);
         when(trackService.saveTrack(track)).thenReturn(track);
         mockMvc.perform(post("/track")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -71,7 +71,7 @@ public class TrackControllerTest {
     @Test
     public void deleteTrackTest() throws Exception
     {
-        when(trackService.deleteTrack(1)).thenReturn(true);
+        when(trackService.deleteTrack(1)).thenReturn(1);
         mockMvc.perform(delete("/track/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

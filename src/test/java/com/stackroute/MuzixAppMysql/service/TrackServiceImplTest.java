@@ -1,11 +1,11 @@
 package com.stackroute.MuzixAppMysql.service;
 
 
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackAlreadyExistsException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.exceptions.TrackNotFoundException;
-import com.stackroute.MusicAssignment.MuzixAppMysql.repository.TrackRepository;
-import com.stackroute.MusicAssignment.MuzixAppMysql.service.TrackServiceImpl;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackAlreadyExistsException;
+import com.stackroute.musicAssignment.muzixAppMysql.exceptions.TrackNotFoundException;
+import com.stackroute.musicAssignment.muzixAppMysql.repository.TrackRepository;
+import com.stackroute.musicAssignment.muzixAppMysql.service.TrackServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -106,8 +106,8 @@ public class TrackServiceImplTest {
     {
         Optional<Track> optionalTrack = Optional.of(track);
         when(trackRepository.findById(1)).thenReturn(optionalTrack);
-        Boolean result = trackService.deleteTrack(1);
-        Assert.assertTrue(result);
+        int result = trackService.deleteTrack(1);
+        Assert.assertEquals(result,1);
         verify(trackRepository,times(1)).delete(Mockito.any(Track.class));
       //  verify(trackRepository,times(1)).findById(1);
         //verifyNoMoreInteractions(trackRepository);

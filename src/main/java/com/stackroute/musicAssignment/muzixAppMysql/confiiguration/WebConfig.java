@@ -1,4 +1,4 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.confiiguration;
+package com.stackroute.musicAssignment.muzixAppMysql.confiiguration;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

@@ -1,4 +1,4 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.exceptions;
+package com.stackroute.musicAssignment.muzixAppMysql.exceptions;
 
 public class TrackNotFoundException extends Exception {
 

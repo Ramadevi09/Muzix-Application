@@ -1,8 +1,8 @@
-package com.stackroute.MusicAssignment.MuzixAppMysql.repository;
+package com.stackroute.musicAssignment.muzixAppMysql.repository;
 
 
 
-import com.stackroute.MusicAssignment.MuzixAppMysql.domain.Track;
+import com.stackroute.musicAssignment.muzixAppMysql.domain.Track;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
